@@ -19,7 +19,7 @@ function add_leading_zero(number){
 
 document.getElementById("Start").onclick = function() {
 
-
+    if (!isRunning) {
         // start the clock
         isRunning = true;
 
@@ -31,11 +31,34 @@ document.getElementById("Start").onclick = function() {
 
         clockInterval = window.setInterval(function(){
 
+            currentTime = new Date().getTime();
+            elapsedTime = currentTime - startTime;
+
+            // per hour 3600000
+            // per minute 60000
+            // per second 1000
+            hours = Math.floor(elapsedTime / 3600000);
+            remainder = elapsedTime - (hours * 3600000);
+
+            minutes = Math.floor(remainder / 60000);
+            remainder -= (minutes * 60000);
+
+            seconds = Math.floor(remainder / 1000);
+            remainder -= (seconds * 1000);
+
+            formattedTime = add_leading_zero(hours) + ":" + add_leading_zero(minutes) + ":" + add_leading_zero(seconds) + ":" + add_leading_zero(remainder);
+
+
             document.getElementById("stopwatch").innerHTML = formattedTime;
 
         },10);
 
-    
+    } else {
+        // stop the clock
+        window.clearInterval(clockInterval);
+        isRunning = false;
+
+    }
 
 }
 
