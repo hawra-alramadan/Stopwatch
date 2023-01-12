@@ -34,4 +34,4 @@ u can use It anywhere, just by giving credit to effortfor to the code [hawra-alr
 
 
 # 🔐LICENSE:
-©  Copyright 2022 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](License.txt)
+©  Copyright 2023 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](License.txt)
